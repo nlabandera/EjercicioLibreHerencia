@@ -31,6 +31,7 @@ public class Moto extends Vehiculo{
 	public void setTipo(TipoMoto tipo) {
 		this.tipo=tipo;
 	}
+
 	
 	@Override
 	public String toString() {

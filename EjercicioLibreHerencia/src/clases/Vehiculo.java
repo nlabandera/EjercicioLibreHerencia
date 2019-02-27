@@ -2,7 +2,7 @@ package clases;
 
 import java.util.*;
 
-public class Vehiculo {
+public abstract class Vehiculo {
 	
 	protected String propietario="";
 	protected String matricula="";

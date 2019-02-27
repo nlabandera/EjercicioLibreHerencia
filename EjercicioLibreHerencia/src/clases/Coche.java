@@ -12,7 +12,7 @@ public class Coche extends Vehiculo{
 		super();
 	}
 	
-	public Coche (String propietario, String matricula, double kilometros, int fecha_matr, String marca, String modelo, int npuestas, String color) {
+	public Coche (String propietario, String matricula, double kilometros, int fecha_matr, String marca, String modelo, int npuertas, String color) {
 		super(propietario, matricula, kilometros, fecha_matr, marca);
 		this.modelo=modelo;
 		this.npuertas=npuertas;
@@ -45,13 +45,11 @@ public class Coche extends Vehiculo{
 	
 
 	
+
+	
 	@Override
 	public String toString() {
-		String mensaje= "Propietario: "+propietario
-				+"\nMatricula: "+matricula
-				+"\nKilometros: "+kilometros
-				+"\nAño de matriculacion: "+fecha_matr
-				+"\nMarca: "+marca
+		String mensaje= super.toString()
 				+"\nModelo: "+modelo
 				+"\nNúmero de puertas: "+npuertas
 				+"\nColor: "+color;
