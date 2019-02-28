@@ -7,22 +7,33 @@ import clases.*;
 public class ejecutable {
 
 	static Scanner sc = new Scanner(System.in);
-	public static ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
 	// public static ArrayList<Coche> coches = new ArrayList<Coche>();
 
 	public static void main(String[] args) {
+		
+		//ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
+		Vehiculos a = new Vehiculos();
 
 		Vehiculo c1 = new Coche("Oihane", "9993DYH", 210521, 2005, "Opel", "Astra", 5, "Azul");
-		vehiculos.add((Coche)c1);
+		a.añadirVehiculo(c1);
+		//vehiculos.add((Coche)c1);
 		Vehiculo c2 = new Coche("David", "0963JFG", 210521, 2005, "Ford", "Fiesta", 3, "Blanco");
-		vehiculos.add((Coche)c2);
-		Vehiculo m1 = new Moto("Nerea", "4185HNS", 15023, 2013, "Kymco", 125, TipoMoto.SCOOTER);
-		vehiculos.add((Moto)m1);
-		Vehiculo m2 = new Moto("Iku", "1992KPT", 5012, 2018, "Kymco", 500, TipoMoto.DEPORTIVA);
-		vehiculos.add((Moto)m2);
-		Vehiculo c3 = new Coche("Nerea", "0954CHZ", 100321, 2003, "Peugeot", "206", 3, "Gris");
-		vehiculos.add((Coche)c3);
+		a.añadirVehiculo(c2);
 
+		//vehiculos.add((Coche)c2);
+		Vehiculo m1 = new Moto("Nerea", "4185HNS", 15023, 2013, "Kymco", 125, TipoMoto.SCOOTER);
+		a.añadirVehiculo(m1);
+
+		//vehiculos.add((Moto)m1);
+		Vehiculo m2 = new Moto("Iku", "1992KPT", 5012, 2018, "Kymco", 500, TipoMoto.DEPORTIVA);
+		a.añadirVehiculo(m2);
+
+		//vehiculos.add((Moto)m2);
+		Vehiculo c3 = new Coche("Nerea", "0954CHZ", 100321, 2003, "Peugeot", "206", 3, "Gris");
+		a.añadirVehiculo(c3);
+
+		//vehiculos.add((Coche)c3);
+		//a.listarVehiculos();
 		boolean salir = false;
 
 		int opcion;
@@ -33,18 +44,43 @@ public class ejecutable {
 											+ "\n2. Mostrar los vehículos existentes."
 											+ "\n3. Borrar un vehículo." 
 											+ "\n4. Buscar un vehículo." 
-											+ "\n5. Salir.");
+											+ "\n5. Modificar un vehiculo"
+											+ "\n6. Salir.");
 
 			opcion = sc.nextInt();
 			sc.nextLine();
 
 			switch (opcion) {
 			case 1:
-				nuevoVehiculo(vehiculos);
+				//nuevoVehiculo(vehiculos);
+				System.out.println("Nuevo vehiculo");
+				
 				break;
 
 			case 2:
-				mostrarVehiculos(vehiculos);
+				//mostrarVehiculos(vehiculos);
+				
+				System.out.println("Seleccione tipo de vehículo: " + "\n1. Coche." + "\n2. Moto."+"\n3. Todos los vehículos");
+				int mostrarTipo = sc.nextInt();
+				sc.nextLine();
+				switch(mostrarTipo) {
+				
+				case 1:
+					System.out.println("LISTA DE COCHES GUARDADOS: ");
+					a.listarCoches();
+					break;
+					
+				case 2:
+					System.out.println("LISTA DE MOTOS GUARDADOS: ");
+					a.listarMotos();
+					break;
+				
+				case 3:
+					System.out.println("LISTA DE TODOS LOS VEHICULOS GUARDADOS: ");
+					a.listarVehiculos();
+					break;
+				}
+				
 				break;
 
 			case 3:
@@ -54,8 +90,11 @@ public class ejecutable {
 			case 4:
 				buscarVehiculo(vehiculos);
 				break;
+			case 5: 
+				modificarVehiculo(vehiculos);
+				break;
 
-			case 5:
+			case 6:
 				System.out.println("Saliendo...");
 				salir = true;
 				break;
@@ -300,7 +339,16 @@ public class ejecutable {
 			System.out.println("El vehículo no existe.");
 			noExiste = true;
 		}
+	
 			
+	}
+	public static void modificarVehiculo(ArrayList<Vehiculo> vehiculos) {
+		System.out.println("Seleccione la posición del vehículo a eliminar: "+"\n");
+		
+		for (int i = 0; i < vehiculos.size(); i++) {
+			System.out.println((i)+") "+vehiculos.get(i).getClass().getSimpleName().toUpperCase());
+			System.out.println(vehiculos.get(i).toString() + "\n");
+		}
 	}
 
 }

@@ -45,7 +45,6 @@ public class Coche extends Vehiculo{
 	
 
 	
-
 	
 	@Override
 	public String toString() {
