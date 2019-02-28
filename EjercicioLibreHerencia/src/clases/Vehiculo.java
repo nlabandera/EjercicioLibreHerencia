@@ -1,6 +1,5 @@
 package clases;
 
-import java.util.*;
 
 public abstract class Vehiculo {
 	
