@@ -16,7 +16,6 @@ public class Vehiculos {
 	public void añadirVehiculo(Vehiculo vehiculo) {
 		vehiculos.add(vehiculo);
 	}
-	
 	public Vehiculo getVehiculo(int posicion) {
 		return vehiculos.get(posicion);
 	}
@@ -60,37 +59,16 @@ public class Vehiculos {
 
 	}
 	
-	public boolean existeVehiculo(String matricula) {
-		boolean existeVehiculo = true;
+	public boolean matriculaExiste(String matricula) {
 		for(int i = 0; i<vehiculos.size(); i++) {
-			if(matricula.matches(vehiculos.get(i).getMatricula())) {
+			if(matricula.equals(vehiculos.get(i).getMatricula())) {
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	
 	public void modificarVehiculo(Vehiculo vehiculo, int posicion) {
 		vehiculos.add(posicion, vehiculo);
 	}
-	
-	
-	public int sacaPosicion(String matricula) {
-		for (int i = 0; i < vehiculos.size(); i++) {
-			if (matricula.matches(vehiculos.get(i).getMatricula()))
-				return i;
-		}
-		return -1;
-	}
-	
-	public void  borrarVehiculo(int i){
-		vehiculos.remove(i);
-	}
-	
-	
-	
-
-
-
 }

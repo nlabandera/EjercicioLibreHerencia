@@ -1,5 +1,7 @@
 package clases;
+import java.util.*;
 
+import java.util.Calendar;
 
 public class Moto extends Vehiculo{
 	
@@ -33,9 +35,13 @@ public class Moto extends Vehiculo{
 	
 	@Override
 	public String toString() {
-		return super.toString()
+		String mensaje = "Propietario: "+propietario
+				+"\nMatricula: "+matricula
+				+"\nKilometros: "+kilometros
+				+"\nAño de matriculacion: "+fecha_matr
+				+"\nMarca: "+marca
 				+"\nCilindrada: "+cilindrada+"cc"
 				+"\nTipo: "+tipo;
-		//return mensaje;
+		return mensaje;
 	}
 }
